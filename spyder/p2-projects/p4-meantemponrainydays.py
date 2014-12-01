@@ -22,7 +22,9 @@ def avg_min_temperature(filename):
     weather_data = pandas.read_csv(filename)
 
     q = """
-    your query here
+    select avg(cast (mintempi as integer))
+    from weather_data
+    where cast(rain as integer) = 1 and cast (mintempi as integer) > 55
     """
     
     #Execute your SQL command against the pandas frame

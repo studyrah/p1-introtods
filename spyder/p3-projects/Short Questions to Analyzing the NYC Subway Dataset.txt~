@@ -1,0 +1,147 @@
+Short Questions to Analyzing the NYC Subway Dataset
+
+Analyzing the NYC Subway Dataset
+
+Short Questions
+
+
+  Overview
+
+For Part 1 of the project, you should have completed the questions in
+Problem Sets 2, 3, 4, and 5 in the Introduction to Data Science course.
+
+For part 2 of the project, please use this document as a template and
+answer the following questions to explain your reasoning and conclusion
+behind your work in the problem sets.
+
+
+  Section 1. Statistical Test
+
+ 1. Which statistical test did you use?
+
+Mann Whitney U Test
+
+ 2. Why is this statistical test appropriate or applicable to the dataset?
+
+The histogram of ENTRIESn_hourly does not show the typical bell like shape of a normal/gaussian distribution (not even skewed), instead it shows a pattern of consistent reduction in frequency from one bucket to the next
+
+So we shouldn't perform a test such as the Students T test which assumes a normal distribution. The Mann Whitney U test does not assume any particular distribution and can tell you whether there is a statistically significant difference between two sample means
+
+ 3. What results did you get from this statistical test?
+
+Rainy Day Mean = 1105.4463767458733
+Non Rainy Day Mean = 1090.278780151855
+Test Statistic = 1924409167.0
+P Value = 0.024999912793489721
+
+ 4. What is the significance of these results?
+
+Here we had a null hypothesis that the mean of the two sets is equal but we received a p value of ~ 0.02, less than the typical p critical of 0.05 so we reject the null hypothesis and assert there is a statistically significant difference between the mean of the two sets.  Rainy days had the higher mean so we expect that more people (on average) go through the turnstiles on rainy days.
+
+
+
+  Section 2. Linear Regression
+
+ 1. What approach did you use to compute the coefficients theta and
+    produce prediction in your regression model:
+
+ 1. Gradient descent (as implemented in exercise 3.5)
+ 
+ YES
+ 
+ 2. OLS using Statsmodels
+ 3. Or something different?
+
+ 2. What features did you use in your model? Did you use any dummy
+    variables as part of your features?
+
+Gradient Descent:
+
+rain
+precipi
+Hour
+meantempi
+UNIT
+ones
+weekday - whether or not it was a weekday or weekend
+
+UNIT was dummy coded but this was provided.
+
+for weekday I used 1 for weekday and 0 for weekend.  I also experimented with dummy coding day of the week (0 - 6) but this proved to be less effective in practice
+
+
+ 3. Why are these features appropriate?
+
+
+Gradient Descent:
+
+rain, precipi - intuitively rain and the degree of rain will affect whether people choose to walk, cycle, ... or use the subway
+
+hour - density of travel fluctuates with 'typical working patterns' and 'typical sleeping patterns for instance
+
+meantempi - again intuitively this will affect peoples choice of transport (& whether they go out at all)
+
+UNIT - unit is tightly linked with station, clearly different stations (based upon geography, attractions, population density etc.) can have there own typical patterns of entry
+
+weekday - a reflection of the working week, more people work Mon - Fri than on Sat/Sun.  Calculating simple averages on the dataset backs this intuition up.
+
+
+ 4. What is your model’s R2 (coefficients of determination) value?
+ 
+ 
+ Gradient Descent: 
+ 
+ R2 = 0.474350279
+
+ 5. What does this R2 value mean for the goodness of fit for your
+    regression model? Do you think this linear model is appropriate for
+    this dataset, given this R2  value?
+
+We now 0 is bad (explains none of the error) and 1 is perfect prediction. So is my value of 0.47 good or bad? Hard to say
+
+It's significantly better than the ~ -0.2 we got with the given model (including parameters) but ...
+
+For a random 15% set of the data I plotted observed values alongside predicted values as follows:
+
+#####
+see - ......p3-projects/p3-gradientdescent-observed-vs-predicted.png
+#####
+
+You could conclude that the model does quite well when ENTRIESn_hourly > 300 (ish), for less than that the model is very poor.  Looking at the observed values there is a conspicously high frequency of observations for ENTRIESn_hourly < 10 (ish).  Could this be situations stations are closed, either routinely or for maintenance etc.? If so and we can characterise these occurrences into features (either by acquiring extra data or 'better understanding the data we have got' then perhaps we can dramatically improve our model for these cases.
+
+
+  Section 3. Visualization
+
+Please include two visualizations that show the relationships between
+two or more variables in the NYC subway data. You should feel free to
+implement something that we discussed in class (e.g., scatterplots, line
+plots, or histograms) or attempt to implement something more advanced if
+you'd like.
+
+ 1. One visualization should be two histograms of ENTRIESn_hourly for
+    rainy days and non-rainy days
+
+ 2. One visualization can be more freeform, some suggestions are:
+
+ 1. Ridership by time-of-day or day-of-week
+ 2. How ridership varies by subway station
+ 3. Which stations have more exits or entries at different times of day
+
+
+  Section 4. Conclusion
+
+ 1. From your analysis and interpretation of the data, do more people ride
+    the NYC subway when it is raining versus when it is not raining?  
+
+ 2. What analyses lead you to this conclusion?
+
+
+
+  Section 5. Reflection
+
+ 1. Please discuss potential shortcomings of the data set and the methods
+    of your analysis. 
+
+Published by Google Drive <//docs.google.com/>–Report Abuse
+<//docs.google.com/abuse?id=16T3kirC0IxvtfxlZb7n5kOz5xFF_JTwrG31J2OZj8KM>–Updated
+automatically every 5 minutes
