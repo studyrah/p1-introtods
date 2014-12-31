@@ -56,10 +56,7 @@ def calculate_next_theta(features, values, theta, alpha):
     where m is the number of samples (num rows in x - in our case features)
     & j goes up to n (num columns in x - in our case features)
     
-    I think if you shut your eyes and hope you can calculate the tricky bit
-    matrix styly by:
-    
-    X_transpose . ( Y - h(X) )
+
     
     """
     
@@ -70,7 +67,7 @@ def calculate_next_theta(features, values, theta, alpha):
     Y_minus_hx = values - hx
     
     # next do the tricky bit
-    Y_minus_hx_times_X = np.dot(np.transpose(features), Y_minus_hx)
+    Y_minus_hx_times_X = np.dot(Y_minus_hx, features)
     
     # next multiply by learning rate / m
     lr_divide_m_times_Y_minus_hx_times_X = (alpha / features.size) * Y_minus_hx_times_X
