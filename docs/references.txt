@@ -1,0 +1,12 @@
+[General Reference]
+
+https://docs.python.org/2/reference/
+http://www.numpy.org/
+http://www.scipy.org/
+https://github.com/yhat/ggplot
+
+[Specific Research]
+
+jitter implementation:  http://nbviewer.ipython.org/gist/fonnesbeck/5850463
+polynomial regression:  http://en.wikipedia.org/wiki/Polynomial_regression
+OLS:  http://en.wikipedia.org/wiki/Ordinary_least_squares

@@ -1,0 +1,46 @@
+[File Structure:]
+
+README (this)
+docs
+src
+
+[docs]
+
+1.  Short Questions to Analyzing the NYC Subway Dataset.pdf
+
+My answers to the short questions
+
+2.  references.txt
+
+List of references to material used to answer the problem sets/short q's
+
+[src]
+
+There is a directory for each problem set 1 - 5, these are called respectively:
+
+ps1-problemsets
+ps2-problemsets
+ps3-problemsets
+ps4-problemsets
+ps5-problemsets
+
+Within each directory there is (typically) 1 .py file per problem within the
+problem set, filenames start 'pn-' where n is the problem number and are
+followed by a descriptive title relevant to the problem:
+
+(e.g.
+
+ps2-problemsets
+      |
+      |--- p1-numrainydays.py
+      |--- p2-fogtemperaturedays.py
+      |--- p3-meanweekendtemperature.py
+      |--- p4-meantemponrainydays.py
+      |--- ...etc.
+)
+
+Each directory also contains additional files (e.g. datasets, graph output)
+relevant to the problem set.
+
+NOTE: there are also analogous directories for the coding exercises within
+the lectures
