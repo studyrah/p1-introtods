@@ -37,10 +37,22 @@ def mann_whitney_plus_means(turnstile_weather):
     without_rain_mean = np.mean(without_rain)
     with_rain_mean = np.mean(with_rain)
     
-    #print np.median(without_rain)
-    #print np.median(with_rain)
+    print "without rain n: " + str(len(without_rain))
+    print "with rain n: " + str(len(with_rain))    
+    
+    print "mean without rain: " + str(np.mean(without_rain))
+    print "mean with rain: " + str(np.mean(with_rain))
+
+    print "median without rain: " + str(np.median(without_rain))
+    print "median with rain: " + str(np.median(with_rain))
+    
+    
                                 
     U,p = scipy.stats.mannwhitneyu(with_rain, without_rain)    
+    
+    print "U: " + str(U)
+    print "p: " + str(p)
+    print "p: " + str(p * 2)    
     
     return with_rain_mean, without_rain_mean, U, p # leave this line for the grader
 
