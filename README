@@ -1,3 +1,7 @@
+17/01/2015
+Please note ./docs/Short Questions to Analyzing the NYC Subway Dataset.pdf has
+been ammended to reflect review comments
+
 [File Structure:]
 
 README (this)
@@ -14,6 +18,10 @@ My answers to the short questions
 
 List of references to material used to answer the problem sets/short q's
 
+3.  project_report.uploaded_report.pdf
+
+Review comments and failed evaluation from initial project submission
+  
 [src]
 
 There is a directory for each problem set 1 - 5, these are called respectively:
